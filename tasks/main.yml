@@ -6,6 +6,9 @@
   shell: "apt-get -y install linux-headers-$(uname -r)"
   tags: ['skip_ansible_lint']
 
+- name: Ensures /etc/init dir exists
+  file: path=/etc/init state=directory
+
 - name: Add configuration to update apt cache on boot.
   copy:
     src: refresh-apt.conf
